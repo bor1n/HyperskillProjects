@@ -9,7 +9,7 @@ args = sys.argv
 if len(args) != 2:
     print('Directory is not specified')
     exit(-1)
-sorting_options = {'1': False, '2': True}
+sorting_options = {'1': True, '2': False}
 file_format = input('Enter file format: ')
 print('\nSize sorting options:\n\
 1. Descending\n\
@@ -24,24 +24,18 @@ while True:
     else:
         break
 result_files = {}
-for root, dirs, files in os.walk(args[1], topdown=sorting_options[option]):
+for root, dic, files in os.walk(args[1]):
     for name in files:
         if re.match('.*\.' + file_format + '$', str(name)):
-            result_files[root + '\\' + name] = str(os.path.getsize(root + '\\' + name))
+            full_name = root + '\\' + name
+            file_size = os.path.getsize(full_name)
+            if file_size in result_files:
+                result_files[file_size] += '\n' + full_name
+            else:
+                result_files[file_size] = full_name
 
-flipped = {}
-
-for key, value in result_files.items():
-    if value not in flipped:
-        flipped[value] = [key]
-    else:
-        flipped[value].append(key)
-
-flipped = collections.OrderedDict(sorted(flipped.items()))
-
-for item in flipped:
-    if len(flipped[item]) >= 2:
-        print(item + ' bytes')
-        for file in flipped[item]:
-            print(file)
-        print()
+sorted_keys = sorted(result_files.keys(), reverse=sorting_options[option])
+for item in sorted_keys:
+    if len(result_files[item]) >= 2:
+        print(str(item) + ' bytes')
+        print(result_files[item] + '\n')
