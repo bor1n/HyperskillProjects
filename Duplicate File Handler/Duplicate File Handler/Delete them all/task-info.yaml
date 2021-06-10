@@ -1,10 +1,5 @@
 type: edu
 files:
-- name: handler.py
-  visible: true
-  text: |
-    # write your code here
-  learner_created: false
 - name: tests.py
   visible: false
   text: "from hstest.stage_test import StageTest\nfrom hstest.check_result import\
@@ -271,6 +266,18 @@ files:
     \ as ignored:\n            pass\n        return []\n\n\nif __name__ == '__main__':\n\
     \    DuplicateFileHandlerCheck().run_tests()\n"
   learner_created: false
+- name: handler.py
+  visible: true
+  text: |
+    # write your code here
+  learner_created: false
+- name: files.s3db-journal
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/176/stages/908/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Well done! You finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: Thu, 10 Jun 2021 07:34:12 UTC
+record: 4

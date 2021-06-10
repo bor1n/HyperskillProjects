@@ -1,11 +1,6 @@
 type: edu
 custom_name: What's that hash about?
 files:
-- name: handler.py
-  visible: true
-  text: |
-    # write your code here
-  learner_created: false
 - name: tests.py
   visible: false
   text: "from hstest.stage_test import StageTest\nfrom hstest.check_result import\
@@ -234,6 +229,17 @@ files:
     \        except Exception as ignored:\n            pass\n        return []\n\n\
     \nif __name__ == '__main__':\n    DuplicateFileHandlerCheck().run_tests()\n"
   learner_created: false
+- name: files.s3db
+  visible: true
+  learner_created: true
+- name: handler.py
+  visible: true
+  text: |
+    # write your code here
+  learner_created: false
 feedback_link: https://hyperskill.org/projects/176/stages/907/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 10 Jun 2021 07:28:54 UTC
+record: 3
